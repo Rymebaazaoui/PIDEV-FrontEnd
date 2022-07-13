@@ -9,6 +9,8 @@ import { MenuComponent } from './menu/menu.component';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { ParadeComponent } from './parade/parade.component';
 import { ParadeFormComponent } from './parade-form/parade-form.component';
+import { FormationFormComponent } from './formation-form/formation-form.component';
+import { FormationComponent } from './formation/formation.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ParadeFormComponent } from './parade-form/parade-form.component';
     DashboardContentComponent,
     ParadeComponent,
     ParadeFormComponent,
+    FormationFormComponent,
+    FormationComponent,
   ],
   imports: [
     BrowserModule,
