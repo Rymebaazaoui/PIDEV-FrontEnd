@@ -1,0 +1,87 @@
+ <!-- Basic Layout -->
+ <div class="col-xxl">
+    <div class="card mb-4">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">Ajouter une Formation</h5>
+        <small class="text-muted float-end">Default label</small>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="FormationForm" (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Titre De Formation</label>
+            <div class="col-sm-10">
+                <input
+                type="text"
+                id="basic-default-test"
+                formControlName="TitreDeFormation"
+                class="form-control"
+                placeholder="tapez le titre de la formation ici."
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Nom de Formateur</label>
+            <div class="col-sm-10">
+                <input
+                type="NomFormateur"
+                id="basic-default-text"
+                formControlName="NomFormateur"
+                class="form-control"
+                placeholder="tapez le nom du formateur ici."
+                
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-company">Date début</label>
+            <div class="col-sm-10">
+              <input
+                type="datetime-local"
+                formControlName="DateDebut"
+                class="form-control"
+                id="basic-default-date"
+                placeholder="dd/mm/yyyy"
+              />
+            </div>
+          </div>
+          
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-date">Date fin </label>
+            <div class="col-sm-10">
+              <input
+                type="datetime-local"
+                id="basic-default-phone"
+                formControlName="DateFin"
+                class="form-control"
+                placeholder="dd/mm/yyyy"
+                
+              />
+            </div>
+          </div>
+          <div class="row mb-3 form-group">
+            <label class="col-sm-2 col-form-label" for="basic-default-name">Description</label>
+            <div class="col-sm-10">
+              <input type="text" formControlName="Description" class="form-control" id="basic-default-name" placeholder="tapez une courte description de la formation ici" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Nombre De Particiants</label>
+            <div class="col-sm-10">
+                <input
+                type="Nomber"
+                id="basic-default-text"
+                formControlName="NombreDeParticiants"
+                class="form-control"
+                placeholder="tapez le Nombre de participant ici."
+              />
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
