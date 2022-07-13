@@ -19,8 +19,8 @@ export class CrudService {
   constructor(private httpClient: HttpClient) { }
 
   // Add
-  AddParade(data: Parade): Observable<any> {
-    let API_URL = `${this.REST_API}/api/createParadeType`;
+  AddParade(data: Parade, id:any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/createParadeType/${id}`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
@@ -28,6 +28,21 @@ export class CrudService {
   // Get all objects
   GetParade() {
     return this.httpClient.get(`${this.REST_API}`);
+  }
+
+  GetParade_type() {
+    return this.httpClient.get(`${this.REST_API}/ParadeTypes`);
+  }
+
+   // Get single object
+   GetParadeOne(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchParade/${id}`;
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
   }
 
   // Delete

@@ -5,4 +5,5 @@ export class Parade {
     DateFin! : Date;
     Lieu! : String;
     Nb_inscription! : number;
+    Type! :[]; 
 }

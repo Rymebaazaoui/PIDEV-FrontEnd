@@ -40,9 +40,8 @@
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                  >
+                  <button class="btn btn-sm btn-primary" routerLink="/edit-parade/{{parade._id}}">Edit</button>
+
                   <button class="btn btn-sm btn-danger" (click)="delete(parade._id, i)">Delete</button>
 
                 </div>
@@ -57,6 +56,7 @@
   <!--/ Basic Bootstrap Table -->
 <br>
   <app-parade-form [hidden]="!showForm"></app-parade-form>
-
+  
+<router-outlet></router-outlet>
 
 </div>
