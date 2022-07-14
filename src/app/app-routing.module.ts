@@ -7,6 +7,8 @@ import {UpdateParadeFormComponent} from "./update-parade-form/update-parade-form
 import {NavbarAdminComponent} from "./navbar-admin/navbar-admin.component";
 import {LoginComponent} from "./login/login.component";
 import {HomepageContentComponent} from "./homepage-content/homepage-content.component";
+import {FormationComponent} from "./formation/formation.component";
+
 
 
 const routes: Routes = [
@@ -15,8 +17,8 @@ const routes: Routes = [
   {path:'parade', component: ParadeComponent},
   {path:'edit-parade/:id', component: UpdateParadeFormComponent},
   {path:'login', component: LoginComponent},
-  {path:'home', component: HomepageContentComponent}
-
+  {path:'home', component: HomepageContentComponent},
+  {path:'formation', component: FormationComponent}
 
 ];
 
