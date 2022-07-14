@@ -10,6 +10,11 @@ import { DashboardContentComponent } from './dashboard-content/dashboard-content
 import { ParadeComponent } from './parade/parade.component';
 import { ParadeFormComponent } from './parade-form/parade-form.component';
 import { UpdateParadeFormComponent } from './update-parade-form/update-parade-form.component';
+import { NavbarClientComponent } from './navbar-client/navbar-client.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { HomepageContentComponent } from './homepage-content/homepage-content.component';
+import { HomepageFooterComponent } from './homepage-footer/homepage-footer.component';
+import { LoginComponent } from './login/login.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationComponent } from './formation/formation.component';
 
@@ -21,10 +26,15 @@ import { FormationComponent } from './formation/formation.component';
     ParadeComponent,
     ParadeFormComponent,
     UpdateParadeFormComponent,
+    NavbarClientComponent,
+    NavbarAdminComponent,
+    HomepageContentComponent,
+    HomepageFooterComponent,
+    LoginComponent,
     FormationFormComponent,
     FormationComponent,
   ],
-git   imports: [
+   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
