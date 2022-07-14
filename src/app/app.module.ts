@@ -10,6 +10,11 @@ import { DashboardContentComponent } from './dashboard-content/dashboard-content
 import { ParadeComponent } from './parade/parade.component';
 import { ParadeFormComponent } from './parade-form/parade-form.component';
 import { UpdateParadeFormComponent } from './update-parade-form/update-parade-form.component';
+import { NavbarClientComponent } from './navbar-client/navbar-client.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { HomepageContentComponent } from './homepage-content/homepage-content.component';
+import { HomepageFooterComponent } from './homepage-footer/homepage-footer.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +24,11 @@ import { UpdateParadeFormComponent } from './update-parade-form/update-parade-fo
     ParadeComponent,
     ParadeFormComponent,
     UpdateParadeFormComponent,
+    NavbarClientComponent,
+    NavbarAdminComponent,
+    HomepageContentComponent,
+    HomepageFooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
