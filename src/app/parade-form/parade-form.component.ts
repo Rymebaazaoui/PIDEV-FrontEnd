@@ -22,7 +22,6 @@ export class ParadeFormComponent implements OnInit {
         DateDeb : [''],
         DateFin : [''],
         Lieu : [''],
-        Nb_inscription : [''],
       })
 
      }
