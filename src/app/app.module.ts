@@ -17,6 +17,9 @@ import { HomepageFooterComponent } from './homepage-footer/homepage-footer.compo
 import { LoginComponent } from './login/login.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationComponent } from './formation/formation.component';
+import { DistanceFormComponent } from './distance-form/distance-form.component';
+import { ClientParadeComponent } from './client-parade/client-parade.component';
+import { InscriptionParadeFormComponent } from './inscription-parade-form/inscription-parade-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { FormationComponent } from './formation/formation.component';
     LoginComponent,
     FormationFormComponent,
     FormationComponent,
+    DistanceFormComponent,
+    ClientParadeComponent,
+    InscriptionParadeFormComponent,
   ],
    imports: [
     BrowserModule,
