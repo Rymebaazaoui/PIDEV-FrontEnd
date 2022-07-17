@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Parade } from '../models/parade';
+import { Inscription_parade } from '../models/Inscription_parade';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {
@@ -19,8 +20,15 @@ export class CrudService {
   constructor(private httpClient: HttpClient) { }
 
   // Add
-  AddParade(data: Parade): Observable<any> {
-    let API_URL = `${this.REST_API}/api/createParadeType`;
+  AddParade(data: Parade, id:any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/createParadeType/${id}`;
+    return this.httpClient
+      .post(API_URL, data)
+      .pipe(catchError(this.handleError));
+  }
+
+  AddInscriptionParade(data: Inscription_parade, id:any): Observable<any> {
+    let API_URL = `${this.REST_API}/createInscriptionParade/${id}`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
@@ -30,9 +38,38 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
+  GetParade_type() {
+    return this.httpClient.get(`${this.REST_API}/ParadeTypes`);
+  }
+
+  GetInsriptionParade() {
+    return this.httpClient.get(`${this.REST_API}/InscriptionParade`);
+  }
+
+
+   // Get single object
+   GetParadeOne(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchParade/${id}`;
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   // Delete
   deleteParade(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/api/deleteParadeById/${id}`;
+    return this.httpClient
+      .delete(API_URL, { headers: this.httpHeaders })
+      .pipe(catchError(this.handleError));
+    
+  }
+
+  // Delete
+  deleteInscriptionParade(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/deleteInscriptionById/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
