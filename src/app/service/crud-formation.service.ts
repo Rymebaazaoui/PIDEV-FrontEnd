@@ -1,61 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Parade } from '../models/parade';
-import { catchError, map } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse,
-} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
+import {catchError} from "rxjs/operators";
+import {Formation} from "../models/formations";
+
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService {
+export class CrudFormationService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8000/api/formation';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
 
   // Add
-  AddParade(data: Parade, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/createParadeType/${id}`;
+  AddFormation(data: Formation): Observable<any> {
+    let API_URL = `${this.REST_API}/api/addType`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
   }
   // Get all objects
-  GetParade() {
+  GetFormation() {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
-  GetParade_type() {
-    return this.httpClient.get(`${this.REST_API}/ParadeTypes`);
-  }
-
-   // Get single object
-   GetParadeOne(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/searchParade/${id}`;
-    return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
-      map((res: any) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
-  }
-
   // Delete
-  deleteParade(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/deleteParadeById/${id}`;
+  deleteFormation(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/deleteFormation/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
-    
+
   }
-   // Update
-   updateParade(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/updateParade/${id}`;
+  // Update
+  updateFormation(id: any, data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/updateFormation/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));

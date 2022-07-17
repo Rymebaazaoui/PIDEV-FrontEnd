@@ -46,6 +46,16 @@ export class CrudVeloService {
       .put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
+// Get single object
+GetVeloOne(id: any): Observable<any> {
+  let API_URL = `${this.REST_API}/api/searchVelo/${id}`;
+  return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
+    map((res: any) => {
+      return res || {};
+    }),
+    catchError(this.handleError)
+  );
+}
 
   // Error
   handleError(error: HttpErrorResponse) {

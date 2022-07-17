@@ -11,6 +11,11 @@ import { ParadeComponent } from './parade/parade.component';
 import { ParadeFormComponent } from './parade-form/parade-form.component';
 import { VeloComponent } from './velo/velo.component';
 import { VeloFormComponent } from './velo-form/velo-form.component';
+import { UpdateParadeFormComponent } from './update-parade-form/update-parade-form.component';
+import { FormationFormComponent } from './formation-form/formation-form.component';
+import { FormationComponent } from './formation/formation.component';
+import { UpdateVeloComponent } from './update-velo/update-velo.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +26,11 @@ import { VeloFormComponent } from './velo-form/velo-form.component';
     ParadeFormComponent,
     VeloComponent,
     VeloFormComponent,
+    UpdateParadeFormComponent,
+    FormationFormComponent,
+    FormationComponent,
+    UpdateVeloComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,

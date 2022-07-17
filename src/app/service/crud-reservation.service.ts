@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Parade } from '../models/parade';
+import { Reservation } from '../models/reservation';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {
@@ -10,33 +10,34 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService {
+export class CrudReservationService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api';
+  REST_API: string = 'http://localhost:8000/api/reservation';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
 
   // Add
-  AddParade(data: Parade, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/createParadeType/${id}`;
+  AddReservation(data: Reservation, id:any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/createVelo/${id}`;
+    
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
   }
   // Get all objects
-  GetParade() {
+  GetReservation() {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
-  GetParade_type() {
-    return this.httpClient.get(`${this.REST_API}/ParadeTypes`);
+  GetVelo() {
+    return this.httpClient.get(`${this.REST_API}/velo`);
   }
 
    // Get single object
-   GetParadeOne(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/searchParade/${id}`;
+   GetReservationOne(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchReservation/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
       map((res: any) => {
         return res || {};
@@ -46,16 +47,16 @@ export class CrudService {
   }
 
   // Delete
-  deleteParade(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/deleteParadeById/${id}`;
+  deleteReservation(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/deleteReservationById/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
     
   }
    // Update
-   updateParade(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/updateParade/${id}`;
+   updateReservation(id: any, data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/api/updateReservation/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
