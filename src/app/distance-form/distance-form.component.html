@@ -1,0 +1,27 @@
+ <!-- Basic Layout -->
+ <div class="col-xxl">
+    <div class="card mb-4">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">Distance entre 2 point</h5>
+        <small class="text-muted float-end">Default label</small>
+      </div>
+      <br>
+      <div class="card-body">
+        <form [formGroup]="DistanceForm" (ngSubmit)="onSubmit()">
+          <div class="row mb-3 form-group">
+            <label class="col-sm-2 col-form-label" for="basic-default-name">Point d'arrivée</label>
+            <div class="col-sm-10">
+              <input type="text" formControlName="latitude"  class="form-control" id="basic-default-name" placeholder="Latitude" /><br>
+              <input type="text" formControlName="longitude"  class="form-control" id="basic-default-name" placeholder="Longitude" />
+
+            </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Calculer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

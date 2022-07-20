@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="col col-lg-3"> 
-    <app-navbar-admin></app-navbar-admin>
+
+  <div class="col col-lg-3">
+  <app-navbar-admin></app-navbar-admin>
   </div>
   <div class="col col-lg-9">
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -14,10 +15,13 @@
       </div>
     <div class="col">
       <button class="btn btn-info" (click)="show()" style="float: right">New +</button>
-          </div>
+    </div>
+    <div class="col">
+      <button class="btn btn-info" (click)="showFormDistance()">Distance</button>
+    </div>
   </div>
-  
     <div class="table-responsive text-nowrap">
+      
       <table class="table">
         <thead>
           <tr>
@@ -27,6 +31,7 @@
             <th>Date fin</th>
             <th>Lieu</th>
             <th>Nombre d'inscription</th>
+            <th>Type parade</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -38,19 +43,16 @@
             <td>{{parade.DateDeb}}</td>
             <td>{{parade.DateFin}}</td>
             <td>{{parade.Lieu}}</td>
-            <td>{{parade.Nb_inscription}}</td>   
+            <td>{{parade.Nb_inscription}}</td> 
+            <td>{{parade.Type}}</td>     
             <td>
-              <div class="dropdown">
-                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                  <i class="bx bx-dots-vertical-rounded"></i>
-                </button>
-                <div class="dropdown-menu">
-                  <button class="btn btn-sm btn-primary" routerLink="/edit-parade/{{parade._id}}">Edit</button>
-
-                  <button class="btn btn-sm btn-danger" (click)="delete(parade._id, i)">Delete</button>
-
-                </div>
-              </div>
+              <div class="row">
+                <a class="dropdown-item" routerLink="/edit-parade/{{parade._id}}"
+                ><i class="bx bx-edit-alt me-1"></i></a>
+                
+                  <a class="dropdown-item" [routerLink]="" (click)="delete(parade._id, i)"
+                  ><i class="bx bx-trash me-1"></i></a></div>
+          
             </td>
           </tr>
           
@@ -60,9 +62,54 @@
   </div>
   <!--/ Basic Bootstrap Table -->
 <br>
-  <app-parade-form [hidden]="!showForm"></app-parade-form>
-  
+<app-parade-form [hidden]="!showForm"></app-parade-form>
+<app-distance-form [hidden]="!showDistance"></app-distance-form>
 <router-outlet></router-outlet>
+<!-- Basic Bootstrap Table -->
+<div class="card">
+  <div class="row card-header">
+    <div class="col">
+      <h5 class="">Participants Parade</h5>
+      </div>
+  </div>
+    <div class="table-responsive text-nowrap">
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Parade</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          <tr *ngFor="let inscription of Inscriptions; let i = index">
+            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> 
+                <strong>{{inscription._id}}</strong></td>
+            <td>{{inscription.Nom}}</td>
+            <td>{{inscription.Prenom}}</td>
+            <td>{{inscription.Mail}}</td>
+            <td>{{inscription.Parade}}</td>    
+            <td>
+              <div class="row">
+                
+                  <a class="dropdown-item" [routerLink]="" (click)="deleteInscription(inscription._id, i)"
+                  ><i class="bx bx-trash me-1"></i></a>
+                </div>
+          
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!--/ Basic Bootstrap Table -->
+<br>
+
 
 </div>
-</div>
+  </div>

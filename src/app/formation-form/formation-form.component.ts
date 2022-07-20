@@ -13,6 +13,8 @@ import { Formation } from '../models/formations';
 export class FormationFormComponent implements OnInit {
 
   FormationForm: FormGroup;
+  Type_formations:any=[];
+  selectedType! : any;
 
   constructor(public formBuilder: FormBuilder,
               private router: Router,
@@ -26,15 +28,21 @@ export class FormationFormComponent implements OnInit {
       NombreDeParticiants : [''],
       DateDebut : [''],
       DateFin : [''],
+      Type : [''],
 
     })
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.crudService.GetFormation_type().subscribe(res => {
+      console.log(res)
+      this.Type_formations =res;
+    }); 
+  }
 
   onSubmit(): any {
-    this.crudService.AddFormation(this.FormationForm.value)
+    this.crudService.AddFormation(this.FormationForm.value, this.selectedType)
       .subscribe(() => {
         console.log('Data added successfully!')
         this.ngZone.run(() => this.router.navigateByUrl('/formation'))
