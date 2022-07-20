@@ -29,6 +29,7 @@ const routes: Routes = [
   {path:'InscriptionParade', component: InscriptionParadeFormComponent},
   {path:'visite', component: VisiteComponent},
   {path:'updateVisite/:id', component: UpdateVisiteFormComponent},
+  {path:'visite', component: VisiteComponent}
 
 
 
