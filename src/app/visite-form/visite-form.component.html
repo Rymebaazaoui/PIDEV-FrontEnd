@@ -6,7 +6,7 @@
       <small class="text-muted float-end">Default label</small>
     </div>
     <div class="card-body">
-      <form [formGroup]="VisiteForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="VisiteForm" (ngSubmit)="onAddVisite()">
         <div class="row mb-3 form-group">
           <label class="col-sm-2 col-form-label" for="basic-default-name">Description</label>
           <div class="col-sm-10">
@@ -18,7 +18,7 @@
           <div class="col-sm-10">
             <input
               type="datetime-local"
-              formControlName="DateDeb"
+              formControlName="DateD"
               class="form-control"
               id="basic-default-company"
               placeholder="ACME Inc."
@@ -32,7 +32,7 @@
             <input
               type="datetime-local"
               id="basic-default-phone"
-              formControlName="DateFin"
+              formControlName="DateF"
               class="form-control phone-mask"
               placeholder="658 799 8941"
               aria-label="658 799 8941"
@@ -43,31 +43,16 @@
         <div class="row mb-3">
           <label class="col-sm-2 col-form-label" for="basic-default-message">Lieu</label>
           <div class="col-sm-10">
-            <input
-              type="text"
-              id="basic-default-phone"
-              formControlName="Lieu"
-              class="form-control phone-mask"
-              placeholder="658 799 8941"
-              aria-label="658 799 8941"
-              aria-describedby="basic-default-phone"
-            />
+            <select class="form-select" formControlName="nom">
+              <option *ngFor="let l of lieux" [value]="l.nom">{{l.nom}} </option>
+
+            </select>
+
           </div>
         </div>
-        <div class="row mb-3">
-          <label class="col-sm-2 col-form-label" for="basic-default-message">Nombre d'inscription</label>
-          <div class="col-sm-10">
-            <input
-              type="number"
-              id="basic-default-phone"
-              formControlName="Nb_inscription"
-              class="form-control phone-mask"
-              placeholder="658 799 8941"
-              aria-label="658 799 8941"
-              aria-describedby="basic-default-phone"
-            />
-          </div>
-        </div>
+
+
+
         <div class="row justify-content-end">
           <div class="col-sm-10">
             <button type="submit" class="btn btn-primary">Send</button>

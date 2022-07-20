@@ -1,8 +1,9 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
-import {CrudService} from "../serviceV/crudVisite.service";
+import Swal from 'sweetalert2';
 import { Visite } from '../models/visite';
+import { CrudServiceVisite } from '../service/service-visite/crud-visite.service';
 
 @Component({
   selector: 'app-visite-form',
@@ -12,29 +13,55 @@ import { Visite } from '../models/visite';
 export class VisiteFormComponent implements OnInit {
 
   VisiteForm: FormGroup;
+  lieux: any=[];
 
   constructor(public formBuilder: FormBuilder,
               private router: Router,
               private ngZone: NgZone,
-              private crudService: CrudService) {
+              private crudService: CrudServiceVisite) {
 
     this.VisiteForm = this.formBuilder.group({
       Description: [''],
-      DateDeb : [''],
-      DateFin : [''],
+      DateD : [''],
+      DateF : [''],
+      nom: ['']
     })
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-  onSubmit(): any {
+    this.crudService.GetLieu().subscribe((res: any) => {
+      console.log(res)
+      this.lieux =res;
+    });
+
+  }
+
+  onAddVisite(): any {
+
     this.crudService.AddVisite(this.VisiteForm.value)
       .subscribe(() => {
         console.log('Data added successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/visite'))
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Visit added successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
+
+        this.gotoVisite() ;
       }, (err) => {
         console.log(err);
       });
+  }
+
+  gotoVisite() {
+    window.location.reload();
+    this.router.navigate(['/visite']);
+
   }
 }

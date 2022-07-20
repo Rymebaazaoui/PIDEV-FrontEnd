@@ -3,6 +3,6 @@ export class Visite {
   Description!: String;
   DateD! : Date;
   DateF! : Date;
-  Lieu : string;
+  nom : string;
 
 }
