@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -20,6 +19,12 @@ import { FormationComponent } from './formation/formation.component';
 import { DistanceFormComponent } from './distance-form/distance-form.component';
 import { ClientParadeComponent } from './client-parade/client-parade.component';
 import { InscriptionParadeFormComponent } from './inscription-parade-form/inscription-parade-form.component';
+import { UpdateFormationFormComponent } from './update-formation-form/update-formation-form.component';
+import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
+import { ClientFormationComponent } from './client-formation/client-formation.component';
+import { EmailFormationFormComponent } from './email-formation-form/email-formation-form.component';
+import { MessageService } from './service/message.service';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import { InscriptionParadeFormComponent } from './inscription-parade-form/inscri
     DistanceFormComponent,
     ClientParadeComponent,
     InscriptionParadeFormComponent,
+    UpdateFormationFormComponent,
+    InscriptionFormationFormComponent,
+    ClientFormationComponent,
+    EmailFormationFormComponent,
   ],
    imports: [
     BrowserModule,
@@ -46,10 +55,9 @@ import { InscriptionParadeFormComponent } from './inscription-parade-form/inscri
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
-
+    
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
