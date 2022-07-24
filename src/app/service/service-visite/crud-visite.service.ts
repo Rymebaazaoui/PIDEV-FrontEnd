@@ -86,7 +86,7 @@ export class CrudServiceVisite {
   // Get single object
   SearchBetweenDates(data: any): Observable<any> {
     let API_URL = `${this.REST_API}/searchPerDate`;
-    alert(JSON.stringify(data))
+    //alert(JSON.stringify(data))
 
     return this.httpClient.post(API_URL, data).pipe(
       map((res: any) => {

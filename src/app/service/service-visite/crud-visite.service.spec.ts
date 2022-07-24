@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
-import { CrudVisiteService } from './crud-visite.service';
+import { CrudServiceVisite } from './crud-visite.service';
 
 describe('CrudVisiteService', () => {
-  let service: CrudVisiteService;
+  let service: CrudServiceVisite;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CrudVisiteService);
+    service = TestBed.inject(CrudServiceVisite);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 });
+

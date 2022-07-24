@@ -29,10 +29,6 @@ export class UpdateVisiteFormComponent implements OnInit {
 
   }
 
-
-
-
-
   ngOnInit(): void {
     this.GetVisiteOne();
     this.crudService.GetLieu().subscribe(res => {
@@ -40,7 +36,6 @@ export class UpdateVisiteFormComponent implements OnInit {
       this.lieux =res;
     });
   }
-
 
 
   public GetVisiteOne(): void {
@@ -59,6 +54,7 @@ export class UpdateVisiteFormComponent implements OnInit {
       (error: HttpErrorResponse) => {
         console.log(error);
         alert(error.message);
+
       }
     );
   }

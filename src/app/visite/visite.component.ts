@@ -89,7 +89,7 @@ export class VisiteComponent implements OnInit {
       this.visites.DateD = this.model.DateD;
       this.visites.DateF = this.model.DateF;
       this.visites=res;
-      alert(JSON.stringify(res));
+     // alert(JSON.stringify(res));
     })
   }
 }
