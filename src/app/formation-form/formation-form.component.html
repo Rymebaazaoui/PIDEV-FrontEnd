@@ -12,7 +12,7 @@
             <div class="col-sm-10">
                 <input
                 type="text"
-                id="basic-default-test"
+                id="basic-default-text"
                 formControlName="TitreDeFormation"
                 class="form-control"
                 placeholder="tapez le titre de la formation ici."
@@ -76,6 +76,16 @@
               />
             </div>
           </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Type</label>
+            <div class="col-sm-10">
+              <select formControlName="Type" [(ngModel)]="selectedType">
+                <option *ngFor="let Type_formation of Type_formations; let i = index" [value]="Type_formation._id"  >          
+                     {{Type_formation.Type}} 
+                    </option>
+              </select>
+            </div>
+            </div>
           <div class="row justify-content-end">
             <div class="col-sm-10">
               <button type="submit" class="btn btn-primary">Send</button>
