@@ -69,7 +69,7 @@ export class UserVisiteComponent implements OnInit {
   searchdata() {
 
 
-    this.crudService.SearchBetweenDates(this.model).subscribe((res: any) => {
+  this.crudService.SearchBetweenDates(this.model).subscribe((res: any) => {
       this.model.DateD= new Date(res.DateD);
       this.model.DateF= new Date(res.DateF);
       this.visites.DateD = this.model.DateD;
