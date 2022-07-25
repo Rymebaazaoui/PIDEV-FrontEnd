@@ -26,6 +26,10 @@ import { UpdateFormationFormComponent } from './update-formation-form/update-for
 import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
 import { ClientFormationComponent } from './client-formation/client-formation.component';
 import { MessageService } from './service/message.service';
+import { AssociationComponent } from './association/association.component';
+import { AssociationFormComponent } from './association-form/association-form.component';
+import { ClientAssociationComponent } from './client-association/client-association.component';
+import { InscriptionAssociationFormComponent } from './inscription-association-form/inscription-association-form.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,6 +60,10 @@ import { UserVisiteComponent } from './user-visite/user-visite.component';
     UpdateFormationFormComponent,
     InscriptionFormationFormComponent,
     ClientFormationComponent,
+    AssociationComponent,
+    AssociationFormComponent,
+    ClientAssociationComponent,
+    InscriptionAssociationFormComponent,
   ],
   imports: [
     BrowserModule,
