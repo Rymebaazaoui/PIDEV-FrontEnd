@@ -19,4 +19,6 @@ export class ClientParadeComponent implements OnInit {
      }); 
   }
 
+ 
+
 }

@@ -83,6 +83,19 @@ export class CrudService {
       .pipe(catchError(this.handleError));
   }
 
+  SearchLieu(data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchParadeParLieu`;
+    //alert(JSON.stringify(data))
+
+    return this.httpClient.post(API_URL, data).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+
   // Error
   handleError(error: HttpErrorResponse) {
     let errorMessage = '';

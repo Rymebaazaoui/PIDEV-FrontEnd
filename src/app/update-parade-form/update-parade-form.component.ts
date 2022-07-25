@@ -2,6 +2,8 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CrudService } from '../service/crudParade.service';
 import { FormGroup, FormBuilder } from "@angular/forms";
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-update-parade-form',
   templateUrl: './update-parade-form.component.html',
@@ -36,10 +38,20 @@ export class UpdateParadeFormComponent implements OnInit {
     })
   }
   ngOnInit() { }
+  Alert(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'votre Parade est à jour',
+      showConfirmButton: false,
+      timer: 1500
+    })  
+  }
   onUpdate(): any {
     this.crudService.updateParade(this.getId, this.UpdateForm.value)
     .subscribe(() => {
         console.log('Data updated successfully!')
+        this.Alert()
         this.ngZone.run(() => this.router.navigateByUrl('/parade'))
       }, (err) => {
         console.log(err);

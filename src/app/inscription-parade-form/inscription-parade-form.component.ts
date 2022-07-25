@@ -36,24 +36,28 @@ export class InscriptionParadeFormComponent implements OnInit {
         this.parades =res;
       }); 
     }
+
+    Alert(){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'votre inscription a été acceptée, veuillez vérifier votre courrier',
+        showConfirmButton: false,
+        timer: 1500
+      })  }
+
   onSubmit(): any {
     this.crudService.AddInscriptionParade(this.InscriptionForm.value, this.selectedType)
     .subscribe(() => {
         console.log('Data added successfully!')
-        this.Alert()
+        
         this.ngZone.run(() => this.router.navigateByUrl('/listParade'))
+        
       }, (err) => {
         console.log(err);
     });
-   
+    this.Alert()
   }
-  Alert(){
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'votre inscription a été acceptée, veuillez vérifier votre courrier',
-      showConfirmButton: false,
-      timer: 1500
-    })  }
+  
 
 }
