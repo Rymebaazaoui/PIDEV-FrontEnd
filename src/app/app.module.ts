@@ -19,10 +19,12 @@ import { FormationComponent } from './formation/formation.component';
 import { DistanceFormComponent } from './distance-form/distance-form.component';
 import { ClientParadeComponent } from './client-parade/client-parade.component';
 import { InscriptionParadeFormComponent } from './inscription-parade-form/inscription-parade-form.component';
+import {VisiteComponent} from "./visite/visite.component";
+import {VisiteFormComponent} from "./visite-form/visite-form.component";
+import { UpdateVisiteFormComponent } from './update-visite-form/update-visite-form.component';
 import { UpdateFormationFormComponent } from './update-formation-form/update-formation-form.component';
 import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
 import { ClientFormationComponent } from './client-formation/client-formation.component';
-import { EmailFormationFormComponent } from './email-formation-form/email-formation-form.component';
 import { MessageService } from './service/message.service';
 import { AssociationComponent } from './association/association.component';
 import { AssociationFormComponent } from './association-form/association-form.component';
@@ -30,6 +32,9 @@ import { ClientAssociationComponent } from './client-association/client-associat
 import { InscriptionAssociationFormComponent } from './inscription-association-form/inscription-association-form.component';
 
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { UserVisiteComponent } from './user-visite/user-visite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,21 +53,25 @@ import { InscriptionAssociationFormComponent } from './inscription-association-f
     DistanceFormComponent,
     ClientParadeComponent,
     InscriptionParadeFormComponent,
+    VisiteComponent,
+    VisiteFormComponent,
+    UpdateVisiteFormComponent,
+    UserVisiteComponent,
     UpdateFormationFormComponent,
     InscriptionFormationFormComponent,
     ClientFormationComponent,
-    EmailFormationFormComponent,
     AssociationComponent,
     AssociationFormComponent,
     ClientAssociationComponent,
     InscriptionAssociationFormComponent,
   ],
-   imports: [
+  imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule,BrowserAnimationsModule, BsDatepickerModule.forRoot()
     
   ],
   providers: [MessageService],
