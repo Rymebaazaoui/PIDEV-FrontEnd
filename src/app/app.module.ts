@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -23,6 +22,11 @@ import { InscriptionParadeFormComponent } from './inscription-parade-form/inscri
 import {VisiteComponent} from "./visite/visite.component";
 import {VisiteFormComponent} from "./visite-form/visite-form.component";
 import { UpdateVisiteFormComponent } from './update-visite-form/update-visite-form.component';
+import { UpdateFormationFormComponent } from './update-formation-form/update-formation-form.component';
+import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
+import { ClientFormationComponent } from './client-formation/client-formation.component';
+import { MessageService } from './service/message.service';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -48,9 +52,10 @@ import { UserVisiteComponent } from './user-visite/user-visite.component';
     VisiteComponent,
     VisiteFormComponent,
     UpdateVisiteFormComponent,
-    UserVisiteComponent
-
-
+    UserVisiteComponent,
+    UpdateFormationFormComponent,
+    InscriptionFormationFormComponent,
+    ClientFormationComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +64,9 @@ import { UserVisiteComponent } from './user-visite/user-visite.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,BrowserAnimationsModule, BsDatepickerModule.forRoot()
-
-],
-  providers: [],
+    
+  ],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

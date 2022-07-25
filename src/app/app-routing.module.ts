@@ -14,6 +14,10 @@ import {InscriptionParadeFormComponent} from "./inscription-parade-form/inscript
 import {VisiteComponent} from "./visite/visite.component";
 import { UpdateVisiteFormComponent } from './update-visite-form/update-visite-form.component';
 import {UserVisiteComponent} from "./user-visite/user-visite.component";
+import {UpdateFormationFormComponent} from './update-formation-form/update-formation-form.component';
+import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
+import { ClientFormationComponent } from './client-formation/client-formation.component';
+
 
 
 
@@ -31,9 +35,11 @@ const routes: Routes = [
   {path:'visite', component: VisiteComponent},
   {path:'updateVisite/:id', component: UpdateVisiteFormComponent},
   {path:'visite', component: VisiteComponent},
-  {path:'searchvisite', component: UserVisiteComponent}
-
-
+  {path:'searchvisite', component: UserVisiteComponent},
+  {path:'listFormations', component: ClientFormationComponent},
+  {path:'InscriptionParade', component: InscriptionParadeFormComponent},
+  {path:'InscriptionFormation', component: InscriptionFormationFormComponent},
+  {path:'edit-formation/:id', component: UpdateFormationFormComponent}
 
 
 ];

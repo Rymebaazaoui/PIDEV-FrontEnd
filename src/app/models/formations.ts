@@ -5,5 +5,6 @@ Description!: String;
 NombreDeParticiants!: Number;
 DateDebut!: Date;
 DateFin!: Date;
+Type! :[];
 
 }

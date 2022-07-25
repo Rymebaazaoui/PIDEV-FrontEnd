@@ -1,3 +1,8 @@
+<div class="row">
+  <div class="col col-lg-3"> 
+    <app-navbar-admin></app-navbar-admin>
+  </div>
+  <div class="col col-lg-9">
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
 
@@ -42,9 +47,8 @@
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"
-                    ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                  >
+                
+                  <button class="btn btn-sm btn-primary" routerLink="/edit-formation/{{formation._id}}">Edit</button>
                   <button class="btn btn-sm btn-danger" (click)="delete(formation._id, i)">Delete</button>
 
                 </div>
@@ -59,6 +63,7 @@
   <!--/ Basic Bootstrap Table -->
 <br>
   <app-formation-form [hidden]="!showForm"></app-formation-form>
+  <router-outlet></router-outlet>
 
-
+</div>
 </div>
