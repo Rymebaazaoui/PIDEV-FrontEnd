@@ -1,5 +1,5 @@
 export class Inscription_formation {    
-    id! : number;
+    id! : String;
     Subject! : String;
     Nom! : String;
     Prenom! : String;

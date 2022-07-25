@@ -30,8 +30,6 @@ import { AssociationComponent } from './association/association.component';
 import { AssociationFormComponent } from './association-form/association-form.component';
 import { ClientAssociationComponent } from './client-association/client-association.component';
 import { InscriptionAssociationFormComponent } from './inscription-association-form/inscription-association-form.component';
-
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { UserVisiteComponent } from './user-visite/user-visite.component';
