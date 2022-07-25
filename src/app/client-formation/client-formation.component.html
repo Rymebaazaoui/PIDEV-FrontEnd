@@ -60,14 +60,7 @@
                                 </div>
                                 <!--  Select job items End-->
                                 <!-- Select job items start -->
-                                <div class="select-job-items2">
-                                    <select name="select2">
-                                        <option value="">Location</option>
-                                        <option value="">Dhaka</option>
-                                        <option value="">Mirpur</option>
-                                        <option value="">Dannondi</option>
-                                    </select>
-                                </div>
+                                
                                 <!--  Select job items End-->
                                 <!-- select-Categories start -->
                                 <div class="select-Categories pt-140 pb-20">
@@ -82,14 +75,7 @@
                                 </div>
                                 <!-- select-Categories End -->
                                 <!-- Select job items start -->
-                                <div class="select-job-items2">
-                                    <select name="select2">
-                                        <option value="">Area (km)</option>
-                                        <option value="">Dhaka- 1km</option>
-                                        <option value="">Dinajpur- 2km</option>
-                                        <option value="">Chittagong - 3km</option>
-                                    </select>
-                                </div>
+                                
                                 <!--  Select job items End-->
                             </div>
 
@@ -127,8 +113,6 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="count mb-35">
-                                    <span>5432 Listings are available</span>
-                                    <button class="btn btn-info" routerLink="/InscriptionFormation" style="float: right">S'inscrire à une formation</button>
                                     <br>
                                 </div>
                             </div>
@@ -140,12 +124,12 @@
                                     <div class="col-lg-6 " *ngFor="let formation of formations; let i = index">
                                         <div class="single-listing mb-30">
                                             <div class="list-img">
-                                                <img src="assets/img/gallery/list1.png" alt="">
+                                                <img src="assets/img/gallery/formation.jpg" alt="">
                                                 <!-- <span>Open</span> -->
                                             </div>
                                             <div class="list-caption">
-                                                <span>Open</span>
-                                                <h3><a href="listing_details.html">{{formation.TitreDeFormation}}</a></h3>
+                                                <button class="btn btn-info" routerLink="/InscriptionFormation" style="float: right">S'inscrire</button>
+                                                <h3><a href="inscription-formation-form.html">{{formation.TitreDeFormation}}</a></h3>
                                                 <h4>{{formation.Description}}</h4>
                                                 <h5>Nombre de participants : {{formation.NombreDeParticiants}}</h5>
                                                 <div class="list-footer">

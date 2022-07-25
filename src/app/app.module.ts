@@ -22,7 +22,6 @@ import { InscriptionParadeFormComponent } from './inscription-parade-form/inscri
 import { UpdateFormationFormComponent } from './update-formation-form/update-formation-form.component';
 import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
 import { ClientFormationComponent } from './client-formation/client-formation.component';
-import { EmailFormationFormComponent } from './email-formation-form/email-formation-form.component';
 import { MessageService } from './service/message.service';
 
 
@@ -47,7 +46,6 @@ import { MessageService } from './service/message.service';
     UpdateFormationFormComponent,
     InscriptionFormationFormComponent,
     ClientFormationComponent,
-    EmailFormationFormComponent,
   ],
    imports: [
     BrowserModule,
