@@ -24,6 +24,10 @@ import { InscriptionFormationFormComponent } from './inscription-formation-form/
 import { ClientFormationComponent } from './client-formation/client-formation.component';
 import { EmailFormationFormComponent } from './email-formation-form/email-formation-form.component';
 import { MessageService } from './service/message.service';
+import { AssociationComponent } from './association/association.component';
+import { AssociationFormComponent } from './association-form/association-form.component';
+import { ClientAssociationComponent } from './client-association/client-association.component';
+import { InscriptionAssociationFormComponent } from './inscription-association-form/inscription-association-form.component';
 
 
 @NgModule({
@@ -48,6 +52,10 @@ import { MessageService } from './service/message.service';
     InscriptionFormationFormComponent,
     ClientFormationComponent,
     EmailFormationFormComponent,
+    AssociationComponent,
+    AssociationFormComponent,
+    ClientAssociationComponent,
+    InscriptionAssociationFormComponent,
   ],
    imports: [
     BrowserModule,

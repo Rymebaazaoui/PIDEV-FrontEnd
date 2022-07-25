@@ -14,6 +14,11 @@ import {InscriptionParadeFormComponent} from "./inscription-parade-form/inscript
 import {UpdateFormationFormComponent} from './update-formation-form/update-formation-form.component';
 import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
 import { ClientFormationComponent } from './client-formation/client-formation.component';
+import {
+  InscriptionAssociationFormComponent
+} from "./inscription-association-form/inscription-association-form.component";
+import {ClientAssociationComponent} from "./client-association/client-association.component";
+import {AssociationComponent} from "./association/association.component";
 
 
 
@@ -27,10 +32,13 @@ const routes: Routes = [
   {path:'home', component: HomepageContentComponent},
   {path:'formation', component: FormationComponent},
   {path:'Distance', component: DistanceFormComponent},
+  {path:'association', component: AssociationComponent},
   {path:'listParade', component: ClientParadeComponent},
   {path:'listFormations', component: ClientFormationComponent},
+  {path:'listAssociation', component: ClientAssociationComponent},
   {path:'InscriptionParade', component: InscriptionParadeFormComponent},
   {path:'InscriptionFormation', component: InscriptionFormationFormComponent},
+  {path:'InscriptionAssociation', component: InscriptionAssociationFormComponent},
   {path:'edit-formation/:id', component: UpdateFormationFormComponent}
 
 

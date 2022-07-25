@@ -1,0 +1,44 @@
+<!-- Basic Layout -->
+<div class="col-xxl">
+  <div class="card">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Ajouter une Association</h5>
+      <small class="text-muted float-end">Default label</small>
+    </div>
+    <div class="card-body">
+      <form  #associationForm="ngForm" (ngSubmit)="onSubmit(associationForm)" id="f">
+        <input type="text"  class="form-control" hidden  ngModel="{{item?._id}}" name="_id" id="basic-default-name"/>
+        <div class="row mb-3 form-group">
+          <label class="col-sm-2 col-form-label" for="basic-default-name">Description</label>
+          <div class="col-sm-10">
+            <input type="text"  class="form-control"  ngModel="{{item?.Description}}" name="Description" id="basic-default-name"/>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-message">Nombre d'inscription</label>
+          <div class="col-sm-10">
+            <input type="number" id="basic-default-phone" ngModel="{{item?.Nb_participant}}"  name="Nb_participant"
+                   class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941"
+                   aria-describedby="basic-default-phone" />
+
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="basic-default-message">Type</label>
+          <div class="col-sm-10">
+            <select class="form-select" name="Type" ngModel="{{item?.Type}}"  aria-label="Default select example">
+              <option selected [ngValue]=null>Open this select menu</option>
+              <option *ngFor="let t of allType" [ngValue]="t._id">{{t.Type}}</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
