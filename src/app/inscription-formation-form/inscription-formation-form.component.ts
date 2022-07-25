@@ -27,7 +27,8 @@ export class InscriptionFormationFormComponent implements OnInit {
       this.InscriptionForm = this.formBuilder.group({
         nom: [''],
         prenom : [''],
-        mail : ['']
+        mail : [''],
+        Formation : ['']
       })
 
      }
@@ -37,23 +38,16 @@ export class InscriptionFormationFormComponent implements OnInit {
         console.log(res)
         this.formations =res;
       }); 
-      var route
-      var routeSub = this.route.params.subscribe(params => {
-        console.log(params) //log the entire params object
-        console.log(params['id']) //log the value of id
-         route = params['id']
-      });console.log('trrr',route)
+      // var route
+      // var routeSub = this.route.params.subscribe(params => {
+      //   console.log(params) //log the entire params object
+      //   console.log(params['id']) //log the value of id
+      //    route = params['id']
+      // });console.log('trrr',route)
  
   }
   onSubmit(): any {
-    var route
-    var routeSub = this.route.params.subscribe(params => {
-      console.log(params) //log the entire params object
-      console.log(params['id']) //log the value of id
-       route = params['id']
-    });console.log('trrr',route)
-    console.log('trrr',this.InscriptionForm.value)
-    this.crudService.AddInscriptionFormation(this.InscriptionForm.value,route)
+    this.crudService.AddInscriptionFormation(this.InscriptionForm.value, this.selectedType)
     .subscribe(() => {
         console.log('Data added successfully!')
         this.ngZone.run(() => this.router.navigateByUrl('/listFormations'))

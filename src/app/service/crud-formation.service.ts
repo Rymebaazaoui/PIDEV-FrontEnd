@@ -23,7 +23,7 @@ export class CrudFormationService {
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
   }
-  // Get all objects
+  // Get all formations
   GetFormation() {
     return this.httpClient.get(`${this.REST_API}`);
   }
@@ -40,7 +40,8 @@ export class CrudFormationService {
   }
   // add new formation inscription
   AddInscriptionFormation(data: Inscription_formation, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/addInscription/${id}`;
+    console.log('service',id);
+    let API_URL = `${this.REST_API}/api/addInscription/${id}`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
@@ -64,6 +65,18 @@ export class CrudFormationService {
   // Gets formation type
   GetFormation_type() {
     return this.httpClient.get(`${this.REST_API}/getFormationType`);
+  }
+
+  SearchFormationPerDates(data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchFormationPerDate`;
+    //alert(JSON.stringify(data))
+
+    return this.httpClient.post(API_URL, data).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
   }
 
   // Error

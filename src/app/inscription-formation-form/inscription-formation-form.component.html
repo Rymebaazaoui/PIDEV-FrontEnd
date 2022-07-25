@@ -126,7 +126,17 @@
               <input type="email" formControlName="mail" class="form-control" id="basic-default-name" placeholder="JohnDoe@mail.com" />
             </div>
           </div>
-
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Formation</label>
+            <div class="col-sm-10">
+              <select formControlName="Formation" [(ngModel)]="selectedType">
+                <option *ngFor="let formation of formations; let i = index" [value]="formation._id"  >          
+                     {{formation.Description}} 
+                    </option>
+              </select>
+              
+            </div>
+          </div>
           
           <div class="row justify-content-end">
             <div class="col-sm-10">
