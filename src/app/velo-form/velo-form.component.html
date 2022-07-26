@@ -6,7 +6,7 @@
         <small class="text-muted float-end">Default label</small>
       </div>
       <div class="card-body">
-        <form [formGroup]="VeloForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="VeloForm" (ngSubmit)="onSubmit($event)">
           <div class="row mb-3 form-group">
             <label class="col-sm-2 col-form-label" for="basic-default-name">marque</label>
             <div class="col-sm-10">
@@ -16,11 +16,13 @@
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-company">image</label>
             <div class="col-sm-10">
-              <input type="image" formControlName="image" class="form-control" id="basic-default-name"  />
+              <input (input)="onFileSelect($event)" type="file"   />
 
             </div>
           </div>
-          
+          <div *ngIf="imageData" >
+            <img [src]="imageData" [alt]="VeloForm.value.image">
+          </div>
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-phone">prix </label>
             <div class="col-sm-10">
@@ -54,6 +56,17 @@
                 aria-label="658 799 8941"
                 aria-describedby="basic-default-phone"
               />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">Type</label>
+            <div class="col-sm-10">
+              <select formControlName="Type" [(ngModel)]="selectedType">
+                <option *ngFor="let Type_velo of Type_velos; let i = index" [value]="Type_velo._id"  >          
+                     {{Type_velo.Type}} 
+                    </option>
+              </select>
+              
             </div>
           </div>
           <div class="row justify-content-end">

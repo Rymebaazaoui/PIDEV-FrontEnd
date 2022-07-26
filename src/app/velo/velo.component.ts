@@ -1,6 +1,8 @@
 import { Component, OnInit, NgZone,EventEmitter, Input, Output} from '@angular/core';
 import { CrudVeloService } from './../service/crud-velo.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-velo',
@@ -38,8 +40,18 @@ export class VeloComponent implements OnInit {
           this.velos.splice(i, 1);
   
         })
+        this.Alert();
       }
     }
+    Alert(){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'velo supprimée avec succès',
+        showConfirmButton: false,
+        timer: 1500
+      })  }
+
   
 
 }

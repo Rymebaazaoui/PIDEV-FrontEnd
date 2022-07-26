@@ -13,14 +13,14 @@ import {
 export class CrudReservationService {
 
   // Node/Express API
-  REST_API: string = 'http://localhost:8000/api/reservation';
+  REST_API: string = 'http://localhost:8000/api/velo';
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
 
   // Add
   AddReservation(data: Reservation, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/createVelo/${id}`;
+    let API_URL = `${this.REST_API}/createReservationVelo/${id}`;
     
     return this.httpClient
       .post(API_URL, data)
@@ -28,11 +28,11 @@ export class CrudReservationService {
   }
   // Get all objects
   GetReservation() {
-    return this.httpClient.get(`${this.REST_API}`);
+    return this.httpClient.get(`${this.REST_API}/ReservationVelo`);
   }
 
   GetVelo() {
-    return this.httpClient.get(`${this.REST_API}/velo`);
+    return this.httpClient.get(`${this.REST_API}`);
   }
 
    // Get single object
@@ -48,12 +48,26 @@ export class CrudReservationService {
 
   // Delete
   deleteReservation(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/deleteReservationById/${id}`;
+    let API_URL = `${this.REST_API}/deleteReservationById/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
     
   }
+   //SEARCH BETWEEN TWO DATES
+  // Get single object
+  SearchBetweenDates(data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchPerDate`;
+    alert(JSON.stringify(data))
+
+    return this.httpClient.post(API_URL, data).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
    // Update
    updateReservation(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/api/updateReservation/${id}`;

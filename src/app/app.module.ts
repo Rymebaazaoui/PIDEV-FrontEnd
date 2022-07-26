@@ -39,7 +39,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { UserVisiteComponent } from './user-visite/user-visite.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { RegistreComponent } from './registre/registre.component';
-@NgModule({
+import { ClientVeloComponent } from './client-velo/client-velo.component';
+import { ReserverVeloFormComponent } from './reserver-velo-form/reserver-velo-form.component';
+
+
+  @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
@@ -74,6 +78,12 @@ import { RegistreComponent } from './registre/registre.component';
     InscriptionAssociationFormComponent,
     ListUserComponent,
     RegistreComponent,
+  
+    DistanceFormComponent,
+    ClientParadeComponent,
+    InscriptionParadeFormComponent,
+    ClientVeloComponent,
+    ReserverVeloFormComponent,
   ],
   imports: [
     BrowserModule,

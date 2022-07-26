@@ -25,7 +25,8 @@ import {ClientAssociationComponent} from "./client-association/client-associatio
 import {AssociationComponent} from "./association/association.component";
 import {ListUserComponent} from "./list-user/list-user.component";
 import {RegistreComponent} from "./registre/registre.component";
-
+import { ClientVeloComponent } from './client-velo/client-velo.component';
+import { ReserverVeloFormComponent } from './reserver-velo-form/reserver-velo-form.component';
 
 
 
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path:'velo', component: VeloComponent},
   {path:'edit-velo/:id', component: UpdateVeloComponent},
   {path:'reservation', component: ReservationComponent},
-
+  {path:'listVelo', component: ClientVeloComponent},
+  {path:'ReserverVelo', component: ReserverVeloFormComponent},
   {path:'edit-parade/:id', component: UpdateParadeFormComponent},
   {path:'login', component: LoginComponent},
   {path:'home', component: HomepageContentComponent},

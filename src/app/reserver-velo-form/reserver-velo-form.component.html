@@ -1,0 +1,159 @@
+
+<app-navbar-client></app-navbar-client>
+<body>
+
+    
+    <main>
+
+        <!-- Hero Start-->
+        <div class="hero-area3 hero-overly2 d-flex align-items-center ">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-9">
+                        <div class="hero-cap text-center pt-50 pb-20">
+                            <h2>Nos velos</h2>
+                        </div>
+                        <!--Hero form -->
+                        <form action="#" class="search-box search-box2">
+                            <div class="input-form">
+                                <input type="text" placeholder="What are you looking for?">
+                            </div>
+                            
+                            <!-- Search box -->
+                            <div class="search-form">
+                                <a href="#">Search</a>
+                            </div>	
+                        </form>	
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- listing Area Start -->
+        <div class="listing-area pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <!-- Left content -->
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="row">
+                            <div class="col-12">
+                                    <div class="small-section-tittle2 mb-45">
+                                    <h4>Advanced Filter</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Job Category Listing start -->
+                        <div class="category-listing mb-50">
+                            <!-- single one -->
+                            <div class="single-listing">
+                                <!-- input -->
+                                <div class="input-form">
+                                    <input type="text" placeholder="What are you finding?">
+                                </div>
+                                
+                                <!--  Select job items End-->
+                                <!-- Select job items start -->
+                                
+                                <!--  Select job items End-->
+                                <!-- select-Categories start -->
+                                
+                                <!-- select-Categories End -->
+                                <!-- Select job items start -->
+                                
+                                <!--  Select job items End-->
+                            </div>
+
+                            <div class="single-listing">
+                                <!-- Range Slider Start -->
+                                <aside class="left_widgets p_filter_widgets price_rangs_aside sidebar_box_shadow">
+                                    
+                                    
+                                </aside>
+                              <!-- Range Slider End -->
+                                 <a href="#" class="btn list-btn mt-20">Reset</a>
+                            </div>
+                        </div>
+                        <!-- Job Category Listing End -->
+                    </div>
+<!-- Basic Layout -->
+ <div class="col-xl-8 col-lg-8 col-md-6">
+    <div class="card mb-4">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <h5 class="mb-0">Reserver un velo</h5>
+        <small class="text-muted float-end">Default label</small>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="ReserverVeloForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-3 form-group">
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Nom</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="Nom" class="form-control" id="basic-default-name" placeholder="John Doe" />
+                </div>
+              </div>
+              <div class="row mb-3 form-group">
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Prenom</label>
+                <div class="col-sm-10">
+                  <input type="text" formControlName="Prenom" class="form-control" id="basic-default-name" placeholder="John Doe" />
+                </div>
+              </div>
+              <div class="row mb-3 form-group">
+                <label class="col-sm-2 col-form-label" for="basic-default-name">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" formControlName="Mail" class="form-control" id="basic-default-name" placeholder="JohnDoe@mail.com" />
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-company">Date début</label>
+                <div class="col-sm-10">
+                  <input
+                    type="datetime-local"
+                    formControlName="DateDeb"
+                    class="form-control"
+                    id="basic-default-company"
+                    placeholder="ACME Inc."
+                  />
+                </div>
+              </div>
+              
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label" for="basic-default-phone">Date fin </label>
+                <div class="col-sm-10">
+                  <input
+                    type="datetime-local"
+                    id="basic-default-phone"
+                    formControlName="DateFin"
+                    class="form-control phone-mask"
+                    placeholder="658 799 8941"
+                    aria-label="658 799 8941"
+                    aria-describedby="basic-default-phone"
+                  />
+                </div>
+              </div>
+          
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-message">velo</label>
+            <div class="col-sm-10">
+              <select formControlName="Velo" [(ngModel)]="selectedType">
+                <option *ngFor="let velo of velos; let i = index" [value]="velo._id"  >          
+                     {{velo.marque}} 
+                    </option>
+              </select>
+              
+            </div>
+          </div>
+          
+          <div class="row justify-content-end">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+            </div>
+        </div>
+    </main>
+    <app-homepage-footer></app-homepage-footer>
+</body>
