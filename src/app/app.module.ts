@@ -33,6 +33,8 @@ import { InscriptionAssociationFormComponent } from './inscription-association-f
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { UserVisiteComponent } from './user-visite/user-visite.component';
+import { ListUserComponent } from './list-user/list-user.component';
+import { RegistreComponent } from './registre/registre.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +64,8 @@ import { UserVisiteComponent } from './user-visite/user-visite.component';
     AssociationFormComponent,
     ClientAssociationComponent,
     InscriptionAssociationFormComponent,
+    ListUserComponent,
+    RegistreComponent,
   ],
   imports: [
     BrowserModule,

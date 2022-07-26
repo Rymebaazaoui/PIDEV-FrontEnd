@@ -17,11 +17,11 @@ import {UserVisiteComponent} from "./user-visite/user-visite.component";
 import {UpdateFormationFormComponent} from './update-formation-form/update-formation-form.component';
 import { InscriptionFormationFormComponent } from './inscription-formation-form/inscription-formation-form.component';
 import { ClientFormationComponent } from './client-formation/client-formation.component';
-import {
-  InscriptionAssociationFormComponent
-} from "./inscription-association-form/inscription-association-form.component";
+import {InscriptionAssociationFormComponent} from "./inscription-association-form/inscription-association-form.component";
 import {ClientAssociationComponent} from "./client-association/client-association.component";
 import {AssociationComponent} from "./association/association.component";
+import {ListUserComponent} from "./list-user/list-user.component";
+import {RegistreComponent} from "./registre/registre.component";
 
 
 
@@ -47,7 +47,9 @@ const routes: Routes = [
   {path:'InscriptionParade', component: InscriptionParadeFormComponent},
   {path:'InscriptionFormation', component: InscriptionFormationFormComponent},
   {path:'InscriptionAssociation', component: InscriptionAssociationFormComponent},
-  {path:'edit-formation/:id', component: UpdateFormationFormComponent}
+  {path:'edit-formation/:id', component: UpdateFormationFormComponent},
+  {path:'listUser', component: ListUserComponent},
+  {path:'registre', component: RegistreComponent}
 
 
 ];
