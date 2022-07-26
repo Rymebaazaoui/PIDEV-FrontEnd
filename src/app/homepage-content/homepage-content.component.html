@@ -34,72 +34,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let velo of velos; let i = index">
                     <div class="single-location mb-30">
                         <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
+                            <img src={{velo.image}} alt="">
                         </div>
                         <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
+                            <p>{{velo.marque}}</p>
+                            <a href="#" class="location-btn"> <i class="ti-money"></i>Prix : {{velo.prix}} TND</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-location mb-30">
-                        <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
-                        </div>
-                        <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-location mb-30">
-                        <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
-                        </div>
-                        <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-location mb-30">
-                        <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
-                        </div>
-                        <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-location mb-30">
-                        <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
-                        </div>
-                        <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-location mb-30">
-                        <div class="location-img">
-                            <img src="./assets/img/gallery/velo.jpg" alt="">
-                        </div>
-                        <div class="location-details">
-                            <p>Velo</p>
-                            <a href="#" class="location-btn">65 <i class="ti-plus"></i> Location</a>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
             <!-- More Btn -->
             <div class="row justify-content-center">

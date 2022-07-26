@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CrudFormationService} from "../service/crud-formation.service";
 import { Formation } from '../models/formations';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -11,7 +12,6 @@ import { Formation } from '../models/formations';
   styleUrls: ['./formation-form.component.css']
 })
 export class FormationFormComponent implements OnInit {
-
   FormationForm: FormGroup;
   Type_formations:any=[];
   selectedType! : any;
@@ -40,14 +40,25 @@ export class FormationFormComponent implements OnInit {
       this.Type_formations =res;
     }); 
   }
+  Alert(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Formation ajoutée avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })  
+  }
 
   onSubmit(): any {
     this.crudService.AddFormation(this.FormationForm.value, this.selectedType)
       .subscribe(() => {
         console.log('Data added successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/formation'))
+//        this.ngZone.run(() => this.router.navigateByUrl('/formation'))
       }, (err) => {
         console.log(err);
       });
+      this.Alert()
+      window.location.reload();
   }
 }

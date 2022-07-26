@@ -1,7 +1,9 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from '@angular/router';
-import { CrudFormationService } from '../service/crud-formation.service'
+import { CrudFormationService } from '../service/crud-formation.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-update-formation-form',
   templateUrl: './update-formation-form.component.html',
@@ -40,14 +42,24 @@ export class UpdateFormationFormComponent implements OnInit {
   })
 }
 
-  ngOnInit() {}
-    onUpdate(): any {
-      this.crudService.updateFormation(this.getId, this.UpdateForm.value)
-      .subscribe(() => {
-          console.log('Data updated successfully!')
-          this.ngZone.run(() => this.router.navigateByUrl('/formation'))
-        }, (err) => {
-          console.log(err);
-      });
-    }
+ngOnInit() { }
+Alert(){
+  Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'mise à jours effectué avec seccès',
+    showConfirmButton: false,
+    timer: 1500
+  })  
+}
+onUpdate(): any {
+  this.crudService.updateFormation(this.getId, this.UpdateForm.value)
+  .subscribe(() => {
+      console.log('Data updated successfully!')
+      this.Alert()
+      this.ngZone.run(() => this.router.navigateByUrl('/formation'))
+    }, (err) => {
+      console.log(err);
+  });
+}
   } 
