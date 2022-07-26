@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone,EventEmitter, Input, Output} from '@angular/core';
 import { CrudReservationService } from './../service/crud-reservation.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reservation',
@@ -18,6 +19,8 @@ export class ReservationComponent implements OnInit {
     
     ) { }
 
+    dataBeforeParse : any;
+  dataAfterParse : any;
     ngOnInit(): void {
       this.showForm=false;
       this.crudReservationService.GetReservation().subscribe(res => {
@@ -30,6 +33,20 @@ export class ReservationComponent implements OnInit {
     show(){
       this.showForm=true;
     }
+    model : any={};
+
+  searchdata() {
+
+
+    this.crudReservationService.SearchBetweenDates(this.model).subscribe((res: any) => {
+      this.model.DateDeb= new Date(res.DateDeb);
+      this.model.DateFin= new Date(res.DateFin);
+      this.reservations.DateDeb = this.model.DateDeb;
+      this.reservations.DateFin = this.model.DateFin;
+      this.reservations=res;
+      //alert(JSON.stringify(res));
+    })
+  }
 
     delete(id:any, i:any) {
       console.log(id);
@@ -38,8 +55,16 @@ export class ReservationComponent implements OnInit {
           this.reservations.splice(i, 1);
   
         })
+        this.Alert(); 
       }
     }
   
-
+    Alert(){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'reservation supprimée avec succès',
+        showConfirmButton: false,
+        timer: 1500
+      })  }
 }

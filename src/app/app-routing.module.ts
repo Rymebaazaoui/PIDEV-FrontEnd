@@ -5,22 +5,41 @@ import {DashboardContentComponent} from "./dashboard-content/dashboard-content.c
 import {ParadeComponent} from "./parade/parade.component";
 import { VeloComponent } from './velo/velo.component';
 import {UpdateParadeFormComponent} from "./update-parade-form/update-parade-form.component";
+import {NavbarAdminComponent} from "./navbar-admin/navbar-admin.component";
+import {LoginComponent} from "./login/login.component";
+import {HomepageContentComponent} from "./homepage-content/homepage-content.component";
 import {FormationComponent} from "./formation/formation.component";
 import { UpdateVeloComponent } from './update-velo/update-velo.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import {DistanceFormComponent} from "./distance-form/distance-form.component";
+import {ClientParadeComponent} from "./client-parade/client-parade.component";
+import {InscriptionParadeFormComponent} from "./inscription-parade-form/inscription-parade-form.component";
+import { ClientVeloComponent } from './client-velo/client-velo.component';
+import { ReserverVeloFormComponent } from './reserver-velo-form/reserver-velo-form.component';
 
 
 
 const routes: Routes = [
-  {path:'menu', component: MenuComponent},
+  {path:'Navbar-admin', component: NavbarAdminComponent},
   {path:'dashboard', component: DashboardContentComponent},
   {path:'parade', component: ParadeComponent},
   {path:'velo', component: VeloComponent},
   {path:'edit-velo/:id', component: UpdateVeloComponent},
   {path:'reservation', component: ReservationComponent},
+  {path:'listVelo', component: ClientVeloComponent},
+  {path:'ReserverVelo', component: ReserverVeloFormComponent},
 
+  
   {path:'edit-parade/:id', component: UpdateParadeFormComponent},
-  {path:'formation', component: FormationComponent}
+  {path:'login', component: LoginComponent},
+  {path:'home', component: HomepageContentComponent},
+  {path:'formation', component: FormationComponent},
+  {path:'Distance', component: DistanceFormComponent},
+  {path:'listParade', component: ClientParadeComponent},
+  {path:'InscriptionParade', component: InscriptionParadeFormComponent}
+
+
+
 
 ];
 
