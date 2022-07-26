@@ -1,4 +1,5 @@
 export class Formation {
+id! : String;    
 TitreDeFormation!: String;
 NomFormateur!:String;
 Description!: String;

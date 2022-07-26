@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 import {Formation} from "../models/formations";
-import { Inscription_formation } from '../models/Inscription_formations';
+import {Inscription_formation} from '../models/Inscription_formations';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +18,12 @@ export class CrudFormationService {
 
   // Add
   AddFormation(data: Formation, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/addType/${id}`;
+    let API_URL = `${this.REST_API}/addType/${id}`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
   }
-  // Get all objects
+  // Get all formations
   GetFormation() {
     return this.httpClient.get(`${this.REST_API}`);
   }
@@ -39,8 +39,9 @@ export class CrudFormationService {
     );
   }
   // add new formation inscription
-  AddInscriptionParade(data: Inscription_formation, id:any): Observable<any> {
-    let API_URL = `${this.REST_API}/addInscription/${id}`;
+  AddInscriptionFormation(data: Inscription_formation, id:any): Observable<any> {
+    console.log('service',id);
+    let API_URL = `${this.REST_API}/api/addInscription/${id}`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
@@ -56,14 +57,26 @@ export class CrudFormationService {
   }
   // Update
   updateFormation(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/api/updateFormation/${id}`;
+    let API_URL = `${this.REST_API}/updateFormation/${id}`;
     return this.httpClient
       .put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
   // Gets formation type
   GetFormation_type() {
-    return this.httpClient.get(`${this.REST_API}/api/getFormationType`);
+    return this.httpClient.get(`${this.REST_API}/getFormationType`);
+  }
+
+  SearchFormationPerDates(data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/searchFormationPerDate`;
+    //alert(JSON.stringify(data))
+
+    return this.httpClient.post(API_URL, data).pipe(
+      map((res: any) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
   }
 
   // Error

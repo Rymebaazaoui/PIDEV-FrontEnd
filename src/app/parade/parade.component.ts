@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone,EventEmitter, Input, Output} from '@angular/core';
 import { CrudService } from './../service/crudParade.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-parade',
@@ -54,13 +55,21 @@ export class ParadeComponent implements OnInit {
 
     deleteInscription(id:any, i:any) {
       console.log(id);
-      if(window.confirm('Do you want to go ahead?')) {
+      
         this.crudService.deleteInscriptionParade(id).subscribe((res) => {
           this.Inscriptions.splice(i, 1);
   
         })
-      }
+      this.Alert();
     }
+    Alert(){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Inscription supprimée avec succès',
+        showConfirmButton: false,
+        timer: 1500
+      })  }
 
     /*Search(){
       // alert(this.searchText)

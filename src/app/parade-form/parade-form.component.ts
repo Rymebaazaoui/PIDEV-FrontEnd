@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CrudService } from '../service/crudParade.service';
 import { Router } from '@angular/router';
 import { Parade } from '../models/parade';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-parade-form',
   templateUrl: './parade-form.component.html',
@@ -15,34 +17,47 @@ export class ParadeFormComponent implements OnInit {
   selectedType! : any;
 
   constructor(public formBuilder: FormBuilder,
-    private router: Router,
-    private ngZone: NgZone,
-    private crudService: CrudService) {
+              private router: Router,
+              private ngZone: NgZone,
+              private crudService: CrudService) {
 
-      this.ParadeForm = this.formBuilder.group({
-        Description: [''],
-        DateDeb : [''],
-        DateFin : [''],
-        Lieu : [''],
-        Nb_inscription : [''],
-        Type : ['']
-      })
+    this.ParadeForm = this.formBuilder.group({
+      Description: [''],
+      DateDeb : [''],
+      DateFin : [''],
+      Lieu : [''],
+      Nb_inscription : [''],
+      Type : ['']
+    })
 
-     }
+  }
 
-     ngOnInit(): void {
-      this.crudService.GetParade_type().subscribe(res => {
-        console.log(res)
-        this.Type_parades =res;
-      }); 
-    }
+  ngOnInit(): void {
+    this.crudService.GetParade_type().subscribe(res => {
+      console.log(res)
+      this.Type_parades =res;
+    });
+  }
+  Alert(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'votre Parade est ajoutée avec succès',
+      showConfirmButton: false,
+      timer: 1500
+    })  
+  }
   onSubmit(): any {
     this.crudService.AddParade(this.ParadeForm.value, this.selectedType)
-    .subscribe(() => {
+      .subscribe(() => {
         console.log('Data added successfully!')
-        this.ngZone.run(() => this.router.navigateByUrl('/parade'))
+        
+        //this.ngZone.run(() => this.router.navigateByUrl('/parade'))
+        
       }, (err) => {
         console.log(err);
-    });
+      });
+      this.Alert()
+      window.location.reload();
   }
 }
