@@ -1,0 +1,123 @@
+<div class="row">
+
+  <div class="col col-lg-3">
+    <app-navbar-admin></app-navbar-admin>
+  </div>
+  <div class="col col-lg-9">
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+
+    <form #addClientForm="ngForm" (ngSubmit)="searchdata()" novalidate>
+      <div class="row" style="margin-top:10px;margin-bottom: 10px;">
+        <div class="col-sm-3 form-group">  </div>
+        <div class="col-sm-3 form-group">
+          <input
+            type="text" #DateD="ngModel" name="DateDeb"
+            [(ngModel)]="model.DateDeb"
+            placeholder="From Date"
+            bsDatepicker
+            [bsConfig]="{ isAnimated: true }" class="form-control"/>
+        </div>
+        <div class="col-sm-3 form-group">
+          <input type="text"  #DateF="ngModel" name="DateFin"
+                 [(ngModel)]="model.DateFin"
+                 placeholder="To Date"
+
+                 bsDatepicker
+                 [bsConfig]="{ isAnimated: true }"  class="form-control"/>
+        </div>
+        <div class="col-sm-3 form-group">
+          <button type="submit" style="justify-content:center;display:flex;align-items:center; margin-top:10px;padding: 8px 8px 8px 8px ;border:none;border-radius:1rem ;background-color:green;">Rechercher</button>
+        </div>
+      </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="col-sm-10">
+      <input
+        type="datetime-local"
+        id="basic-default-phone"
+        formControlName="DateF"
+        class="form-control phone-mask"
+        placeholder="658 799 8941"
+        aria-label="658 799 8941"
+        aria-describedby="basic-default-phone"
+      />
+    </div><br/>
+    <div class="col-sm-10">
+      <input
+        type="datetime-local"
+        id="basic-default-phone"
+        formControlName="DateF"
+        class="form-control phone-mask"
+        placeholder="658 799 8941"
+        aria-label="658 799 8941"
+        aria-describedby="basic-default-phone"
+      />
+    </div> -->
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+  <div class="row card-header">
+    <div class="col">
+      <h5 class="">Reservations</h5>
+      </div>
+    
+  </div>
+  
+    <div class="table-responsive text-nowrap">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>velo</th>
+           <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+          <tr *ngFor="let reservation of reservations; let i = index">
+            
+                <td>{{reservation.Nom}}</td>
+            <td>{{reservation.Prenom}}</td>
+            <td>{{reservation.Mail}}</td>
+            <td>{{reservation.DateDeb |date}}</td>
+            <td>{{reservation.DateFin |date}}</td>
+            <td>{{reservation.Velo}}</td>
+            <td>
+              <div class="row">
+                
+                
+                  <a class="dropdown-item" [routerLink]="" (click)="delete(reservation._id, i)"
+                  ><i class="bx bx-trash me-1"></i></a></div>
+          
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!--/ Basic Bootstrap Table -->
+<br>
+  <app-parade-form [hidden]="!showForm"></app-parade-form>
+  
+<router-outlet></router-outlet>
+
+</div>

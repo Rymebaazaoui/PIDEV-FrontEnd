@@ -8,6 +8,8 @@ import { MenuComponent } from './menu/menu.component';
 import { DashboardContentComponent } from './dashboard-content/dashboard-content.component';
 import { ParadeComponent } from './parade/parade.component';
 import { ParadeFormComponent } from './parade-form/parade-form.component';
+import { VeloComponent } from './velo/velo.component';
+import { VeloFormComponent } from './velo-form/velo-form.component';
 import { UpdateParadeFormComponent } from './update-parade-form/update-parade-form.component';
 import { NavbarClientComponent } from './navbar-client/navbar-client.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
@@ -16,6 +18,8 @@ import { HomepageFooterComponent } from './homepage-footer/homepage-footer.compo
 import { LoginComponent } from './login/login.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationComponent } from './formation/formation.component';
+import { UpdateVeloComponent } from './update-velo/update-velo.component';
+import { ReservationComponent } from './reservation/reservation.component';
 import { DistanceFormComponent } from './distance-form/distance-form.component';
 import { ClientParadeComponent } from './client-parade/client-parade.component';
 import { InscriptionParadeFormComponent } from './inscription-parade-form/inscription-parade-form.component';
@@ -35,13 +39,19 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { UserVisiteComponent } from './user-visite/user-visite.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { RegistreComponent } from './registre/registre.component';
-@NgModule({
+import { ClientVeloComponent } from './client-velo/client-velo.component';
+import { ReserverVeloFormComponent } from './reserver-velo-form/reserver-velo-form.component';
+
+
+  @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DashboardContentComponent,
     ParadeComponent,
     ParadeFormComponent,
+    VeloComponent,
+    VeloFormComponent,
     UpdateParadeFormComponent,
     NavbarClientComponent,
     NavbarAdminComponent,
@@ -50,6 +60,8 @@ import { RegistreComponent } from './registre/registre.component';
     LoginComponent,
     FormationFormComponent,
     FormationComponent,
+    UpdateVeloComponent,
+    ReservationComponent,
     DistanceFormComponent,
     ClientParadeComponent,
     InscriptionParadeFormComponent,
@@ -66,6 +78,12 @@ import { RegistreComponent } from './registre/registre.component';
     InscriptionAssociationFormComponent,
     ListUserComponent,
     RegistreComponent,
+  
+    DistanceFormComponent,
+    ClientParadeComponent,
+    InscriptionParadeFormComponent,
+    ClientVeloComponent,
+    ReserverVeloFormComponent,
   ],
   imports: [
     BrowserModule,
